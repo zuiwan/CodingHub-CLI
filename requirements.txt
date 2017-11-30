@@ -1,0 +1,11 @@
+click
+requests
+marshmallow
+pytz
+shortuuid
+tabulate
+kafka-python
+pathlib2
+tzlocal
+progressbar33
+websocket-client
