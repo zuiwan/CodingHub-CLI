@@ -22,7 +22,7 @@ class ExperimentConfigManager(object):
     @classmethod
     def get_config(cls):
         if not os.path.isfile(cls.CONFIG_FILE_PATH):
-            raise ClException("Missing .chexpt file, run cl init first")
+            raise ClException("Missing .chexpt file, run codehub init first")
 
         with open(cls.CONFIG_FILE_PATH, "r") as config_file:
             experiment_config_str = config_file.read()

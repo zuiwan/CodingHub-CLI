@@ -22,8 +22,8 @@ SOCKET_STATE = Enum('State', 'INIT UPLOADING FINISH FAILED')
 class FsClient(RussellHttpClient):
 
     def __init__(self):
-        self.ws_url = "ws://{host}:{port}".format(host=ch.russell_fs_host,
-                                                  port=ch.russell_fs_port)
+        self.ws_url = "ws://{host}:{port}".format(host=ch.CODINGHUB_FS_HOST,
+                                                  port=ch.CODINGHUB_FS_PORT)
         self.FILE_NAME = ''
         self.STATE = SOCKET_STATE.INIT
         super(FsClient, self).__init__()

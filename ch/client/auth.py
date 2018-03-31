@@ -9,6 +9,7 @@ class AuthClient(RussellHttpClient):
 
     def __init__(self):
         self.url = "/user"
+        self.token_url = "/token"
         super(AuthClient, self).__init__()
 
     def get_user(self, access_token):

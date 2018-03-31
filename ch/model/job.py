@@ -1,5 +1,5 @@
 from marshmallow import Schema, fields, post_load
-from cl.model.base import BaseModel
+from ch.model import BaseModel
 
 
 class JobReqSchema(Schema):

@@ -1,6 +1,6 @@
 from marshmallow import Schema, fields, post_load
 
-from cl.model import BaseModel
+from ch.model import BaseModel
 
 class AccessTokenSchema(Schema):
     username = fields.Str()

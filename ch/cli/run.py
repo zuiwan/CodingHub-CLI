@@ -39,8 +39,11 @@ _TEMP_DIR = ".codinghubTemp"
               help='Run instantly(as soon as fast)',
               default=False)
 @click.option('--value',
-              type=float,
+              type=click.FLOAT,
               help='Bidding price(￥Yuan) for this run')
+@click.option('--duration',
+              type=click.STRING,
+              help='Estimated total duration of this run, format like "7d5h10m2s" in golang')
 @click.option('--earliest',
               type=str,
               help='The beginning of time window for this run')

@@ -21,7 +21,7 @@ class RussellHttpClient(object):
     """
 
     def __init__(self):
-        self.base_url = ch.russell_host + "/api/v{}"
+        self.base_url = ch.CODINGHUB_HOST + "/api/v{}"
         self.access_token = AuthConfigManager.get_access_token()
 
     def request(self, method, url, params=None, data=None, json=None, files=None, access_token=None,
@@ -52,34 +52,30 @@ class RussellHttpClient(object):
                                         auth=auth)
         except requests.exceptions.ConnectionError:
             sys.exit("Cannot connect to the Russell server. Check your internet connection.")
-        if not stream:
-            try:
-                logger.debug("Response Content: {}, Headers: {}".format(response.json(), response.headers))
-            except Exception:
-                logger.debug("Request failed. Response: {}".format(response.content))
-            try:
-                self.check_response_status(response)
-            except Exception as e:
-                raise e
+        try:
+            if not stream:
+                logger.debug("Response Content: {}, Headers: {}".format(response.content, response.headers))
+                return self.check_response_status(response)
             else:
-                result = response.json().get("data", "")
-                return result
-        else:
-            logger.debug('HTTP Stream Request/Response...')
-            try:
-                self.check_response_status(response)
-            except Exception as e:
-                raise e
-            else:
-                return response
+                logger.debug('HTTP Stream Request/Response...')
+                return self.check_response_status(response)
+        except Exception as e:
+            sys.exit(str(e))
 
     def check_response_status(self, response):
         """
         Check if response is successful. Else raise Exception.
         """
         # 处理流式响应
-        if not response.headers.get('Content-Type') in ('application/json', 'text/html'):
-            return
+        flag = False
+        for ct in ('application/json', 'text/html'):
+            if ct in response.headers.get('Content-Type'):
+                flag = True
+                break
+        if flag is False:
+            logger.debug("Content-Type is {}".format(response.headers.get('Content-Type')))
+            return response
+        logger.debug("Http status code: {}".format(response.status_code))
         # 处理标准HTTP错误码
         if not (200 <= response.status_code < 300):
             if response.status_code == 401:
@@ -112,6 +108,7 @@ class RussellHttpClient(object):
                 raise BadRequestException()
             else:
                 raise InvalidResponseException()
+        return resp_json
 
     def download(self, url, filename, timeout=10, api_version=1):
         """

@@ -21,10 +21,10 @@ def cli(verbose):
     Russell CLI interacts with Russell server and executes your commands.
     More help is available under each command listed below.
     """
-    ch.russell_host = "http://api.cannot.cc"
-    ch.russell_web_host = "http://web.cannot.cc"
-    ch.russell_fs_host = "fs.cannot.cc"
-    ch.russell_fs_port = 8081
+    ch.CODINGHUB_HOST = "https://api.cannot.cc"
+    ch.CODINGHUB_WEB_HOST = "https://web.cannot.cc"
+    ch.CODINGHUB_FS_HOST = "fs.cannot.cc"
+    ch.CODINGHUB_FS_PORT = 8081
     configure_logger(verbose)
 
 

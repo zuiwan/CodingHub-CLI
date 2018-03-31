@@ -46,7 +46,7 @@ def login(token, username, password):
             password = str(click.prompt("Password", type=str, hide_input=True))
         login_with_username_and_password(username, password)
     elif click.confirm('Authentication token page will now open in your browser. Continue?', default=True):
-        webbrowser.open(ch.russell_web_host + "/welcome")
+        webbrowser.open(ch.CODINGHUB_WEB_HOST + "/welcome")
         token = str(click.prompt('Please copy and paste the token here', type=str, hide_input=True))
         if not token:
             russell_logger.info("Empty token received. Make sure your shell is handling the token appropriately.")
