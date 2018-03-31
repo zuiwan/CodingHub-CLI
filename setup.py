@@ -1,21 +1,21 @@
 #!/usr/bin/env python
 from setuptools import find_packages, setup
 
-project = "cl-cli"
+project = "ch-cli"
 version = "0.1.0"
 setup(
     name=project,
     version=version,
-    description="Command line tool for cl",
+    description="Command line tool for ch",
     author="Zuiwan",
     author_email="danceiny@gmail.com",
-    url="https://git.coding.net/danceiny/cl-cli.git",
-    packages=find_packages(exclude=["*.tests", "*.tests.*", "tests.*", "tests"]),
-    include_package_data=True,
+    url="https://github.com/zuiwan/CodingHub-CLI.git",
+    packages=find_packages(exclude=("*.tests", "*.tests.*", "tests.*", "tests")),
+    inchude_package_data=True,
     zip_safe=False,
-    keywords="cl",
+    keywords="ch",
     install_requires=[
-        "click>=6.7",
+        "chick>=6.7",
         "requests>=2.12.4",
         "marshmallow>=2.11.1",
         "pytz>=2016.10",
@@ -25,7 +25,7 @@ setup(
         "pathlib2>=2.3.0",
         "tzlocal>=1.4",
         "progressbar33>=2.4",
-        "websocket-client>=0.44.0",
+        "websocket-chient>=0.44.0",
     ],
     setup_requires=[
         "nose>=1.0",
@@ -34,9 +34,9 @@ setup(
     ],
     entry_points={
         "console_scripts": [
-            "cl = cl.main:cli",
-            "cl-dev = cl.development.dev:cli",
-            "cl-local = cl.development.local:cli",
+            "ch = ch.main:chi",
+            "ch-dev = ch.development.dev:cli",
+            "ch-local = ch.development.local:cli",
         ],
     },
     tests_require=[
