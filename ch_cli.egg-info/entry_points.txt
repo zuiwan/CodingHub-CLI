@@ -1,5 +1,0 @@
-[console_scripts]
-ch-dev = ch.development.dev:cli
-ch-local = ch.development.local:cli
-codehub = ch.main:cli
-
