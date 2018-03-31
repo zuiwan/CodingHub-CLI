@@ -1,7 +1,7 @@
-# cl-cli
+# codehub-cli
 CodingHub命令行工具(Command line tool for codinghub-cloud)
 
-https://github.com/zuiwan
+https://github.com/zuiwan/CodingHub-CLI
 
 ## 1. 安装(Install)
 
@@ -13,7 +13,7 @@ python setup.py install
 ## 2. 登陆(Login)
 
 ```
-cl login
+codehub login -uUSERNAME -pPASSWORD
 ```
 
 
@@ -38,13 +38,13 @@ cl run <command>
 ### 3.3 输出日志(Logs)
 
 ```
-cl logs <run_id>
+codehub logs <run_id>
 ```
 
 ### 3.4 输出结果(Output)
 
 ```
-cl output <run_id>
+codehub output <run_id>
 ```
 
 ## 4. 管理数据集
@@ -52,26 +52,26 @@ cl output <run_id>
 
 ### 4.1 初始化数据集
 ```
-cl data init --id <dataset_id>
+codehub data init --id <dataset_id>
 ```
 or
 ```
-cl data init --name <dataset_name>
+codehub data init --name <dataset_name>
 ```
 
 ### 4.2 上传数据集
 ```
-cl data upload
+codehub data upload
 ```
 
 ### 4.3 查看数据集状态
 ```
-cl data status [dataset_id]
+codehub data status [dataset_id]
 ```
 
 ### 4.4 浏览数据集
 ```
-cl data output
+codehub data output
 ```
 
 
@@ -79,7 +79,7 @@ cl data output
 
 ### 5.1 初始化
 ```
-cl blog init [OPTIONS] [ARGS]
+codehub blog init [OPTIONS] [ARGS]
 ```
 Options：
 
@@ -89,7 +89,7 @@ Options：
 
 ### 5.2 创建博客文章
 ```
-cl blog new <blog_title>
+codehub blog new <blog_title>
 ```
 Options：
 
@@ -102,7 +102,7 @@ Options：
 
 ### 5.3 本地提交博客
 ```
-cl blog commit [OPTIONS]
+codehub blog commit [OPTIONS]
 ```
 Options：
 
@@ -112,24 +112,24 @@ Options：
 
 ### 5.4 发布本地提交
 ```
-cl blog publish
+codehub blog publish
 ```
 
 
 ## 6. 管理收藏
 ### 6.1 添加收藏
 ```
-cl fav add [OPTIONS] [ARGS]
+codehub fav add [OPTIONS] [ARGS]
 ```
 
 示例：
 1. 添加单个url
 ```
-cl fav add --url <url>
+codehub fav add --url <url>
 ```
 2. 从文本文件批量添加url
 ```
-cl fav add --url -r <url.txt>
+codehub fav add --url -r <url.txt>
 ```
 
 Options：
@@ -145,7 +145,7 @@ Options：
 
 ### 6.2 搜索收藏
 ```
-cl fav search <key_words>
+codehub fav search <key_words>
 ```
 
 
